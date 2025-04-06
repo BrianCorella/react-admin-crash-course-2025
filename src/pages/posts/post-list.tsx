@@ -1,20 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { Datagrid, List, ReferenceField, TextField, FunctionField, useRecordContext } from "react-admin";
-
-const PostPanel = () => {
-    const record = useRecordContext();
-    return <div>{record?.body}</div>
-};
+import { Datagrid, List, ReferenceField, TextField, FunctionField } from "react-admin";
 
 const PostList = () => (
     <List>
-        <Datagrid 
-        expand={<PostPanel/>}
-        sx={{
-            '.RaDatagrid-headerCell': {
-                padding:'16px'
-                } 
-            }}>
+        <Datagrid>
             <TextField source="id" />
             <TextField source="title" label="Post Title" />
             <FunctionField label="Excerpt" render={(record) => `${record.body.substring(0, 50)}...`} />
