@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Datagrid, List, ReferenceField, TextField, FunctionField } from "react-admin";
+import { Datagrid, List, ReferenceField, TextField, FunctionField, EditButton } from "react-admin";
 
 const PostList = () => (
     <List>
@@ -8,6 +8,7 @@ const PostList = () => (
             <TextField source="title" label="Post Title" />
             <FunctionField label="Excerpt" render={(record) => `${record.body.substring(0, 50)}...`} />
             <ReferenceField source="userId" reference="users" />
+            <EditButton />
         </Datagrid>
     </List>
 );
